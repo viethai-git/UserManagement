@@ -49,7 +49,7 @@ function FormPage(props) {
                         placeholder="Enter age..."
                     />
 
-                    <FormGroup>
+                    <FormGroup className="text-right">
                         <Button type="submit" color='primary'>
                             Lưu
                     </Button>

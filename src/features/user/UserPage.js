@@ -2,7 +2,7 @@ import * as React from 'react';
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom'
 import { deleteUser } from './UserSlice.js';
-import { Button, Col, Label, Row, Table } from 'reactstrap';
+import { Button, Row } from 'reactstrap';
 import PropTypes from 'prop-types';
 import Pagination from "react-js-pagination";
 import { useState } from 'react';
@@ -71,37 +71,35 @@ export default function UserPage(props) {
 		<div>
 			<Button color="primary"><Link style={colorText} to="/listusers/add">Add new user</Link></Button>
 		&nbsp;
-			<Button color="danger" onClick={clear}>Clear</Button>
-			<br /><br />
-			<Row>
-				<table className='table table-striped' aria-labelledby="tabelLabel" border="0">
-
-					<thead>
-						<tr>
-							<th>Id</th>
-							<th>Name</th>
-							<th>Age</th>
-							<th></th>
+		<Button color="danger" onClick={clear}>Clear</Button>
+		<br/><br/>
+		<Row>
+			<table className='table table-striped' aria-labelledby="tabelLabel" border="0">
+				<thead>
+					<tr>
+						<th>Id</th>
+						<th>Name</th>
+						<th>Age</th>
+						<th>Function</th>
+					</tr>
+				</thead>
+				<tbody>
+					{currentList.length !== 0 ? currentList.map(user =>
+						<tr key={user.id}>
+							<td>{user.id}</td>
+							<td>{user.name}</td>
+							<td>{user.age}</td>
+							<td><Button color="success" onClick={() => handleEdit(user)}>Edit</Button>&nbsp;&nbsp;
+							<Button color="danger" onClick={() => confirmDelete(user)}>Delete</Button></td>
 						</tr>
-					</thead>
-					<tbody>
-						{currentList.map(user =>
-							<tr key={user.id}>
-								<td>{user.id}</td>
-								<td>{user.name}</td>
-								<td>{user.age}</td>
-								<td>
-									<Button color="success" onClick={() => handleEdit(user)}>Edit</Button>&nbsp;&nbsp;
-									<Button color="danger" onClick={() => confirmDelete(user)}>Delete</Button>
-								</td>
-							</tr>
-						)}
-					</tbody>
-				</table>
-
+					) : <div className="text-center">Empty List</div>
+				}
+				</tbody>
+			</table>
+			<Row>
 				<Pagination
 					itemClass="page-item"
-					linkClass="page-link"
+					linkClass="page-link" 
 					activePage={activePage}
 					itemsCountPerPage={3}
 					totalItemsCount={total}
@@ -109,6 +107,7 @@ export default function UserPage(props) {
 					onChange={handlePageChange}
 				/>
 			</Row>
+		</Row>
 		</div>
 	);
 }
