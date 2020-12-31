@@ -6,8 +6,8 @@ InputField.propTypes = {
     field: PropTypes.object.isRequired,
     form: PropTypes.object.isRequired,
 
-    min: PropTypes.number,
-    max: PropTypes.number,
+    min: PropTypes.string,
+    max: PropTypes.string,
     type: PropTypes.string,
     label: PropTypes.string,
     placeholder: PropTypes.string,
@@ -15,10 +15,10 @@ InputField.propTypes = {
 };
 
 InputField.defaultProps = {
-    type: 'text',
+    type: '',
     label: '',
-    min: null,
-    max: null,
+    min: '',
+    max: '',
     placeholder: '',
     disabled: false,
 }

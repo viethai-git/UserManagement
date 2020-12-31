@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom'
-import { deleteUser } from './UserSlice';
+import { deleteUser } from './UserSlice.js';
 import PropTypes from 'prop-types';
 
 UserPage.propTypes = {
@@ -13,7 +13,7 @@ UserPage.defaultPros = {
 }
 
 export default function UserPage(props) {
-    const { userList, editUserClick } = props;
+	const { userList, editUserClick } = props;
     const dispatch = useDispatch();
 
 	const handleEdit = (a) => {
