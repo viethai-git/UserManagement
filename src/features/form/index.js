@@ -1,6 +1,6 @@
 
 import FormPage from './formPage';
-import { addUser, editUser } from '../user/UserSlice';
+import { addUser, editUser } from '../user/UserSlice.js';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
