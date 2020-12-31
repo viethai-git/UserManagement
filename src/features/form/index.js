@@ -4,6 +4,7 @@ import { addUser, editUser } from '../user/UserSlice.js';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
+import '../../Style.scss';
 
 AddEditPage.propTypes = {
 
@@ -37,8 +38,8 @@ function AddEditPage(props) {
     }
 
     return (
-        <div>
-            <div>
+        <div className="user-edit">
+            <div className="user-edit__form">
                 {
                     infoUserEdit !== undefined || idAdd === true ? <FormPage
                     isAddMode={idAdd}
