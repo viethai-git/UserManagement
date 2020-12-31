@@ -12,6 +12,7 @@ InputField.propTypes = {
     label: PropTypes.string,
     placeholder: PropTypes.string,
     disabled: PropTypes.bool,
+    required: PropTypes.string,
 };
 
 InputField.defaultProps = {
@@ -21,12 +22,13 @@ InputField.defaultProps = {
     max: '',
     placeholder: '',
     disabled: false,
+    required: '',
 }
 
 function InputField(props) {
     const {
         field, min, max,
-        type, label, placeholder, disabled
+        type, label, placeholder, disabled, required
     } = props;
     const { name } = field;
     return (
@@ -42,6 +44,7 @@ function InputField(props) {
                 max={max}
                 placeholder={placeholder}
                 disabled={disabled}
+                required={required}
             />
         </FormGroup>
     );

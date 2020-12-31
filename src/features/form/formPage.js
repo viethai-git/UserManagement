@@ -30,6 +30,7 @@ function FormPage(props) {
                         label="Id"
                         placeholder="Enter Id..."
                         disabled={isAddMode ? false : true}
+                        required
                     />
                     <FastField
                         name="name"
@@ -37,6 +38,7 @@ function FormPage(props) {
 
                         label="Name"
                         placeholder="Enter name..."
+                        required
                     />
                     <FastField
                         name="age"
