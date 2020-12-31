@@ -2,7 +2,7 @@ import * as React from 'react';
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom'
 import { deleteUser } from './UserSlice.js';
-import { Button, Col, Label, Row, Table } from 'reactstrap';
+import { Button, Row } from 'reactstrap';
 import PropTypes from 'prop-types';
 import Pagination from "react-js-pagination";
 import {useState} from 'react';
@@ -57,17 +57,16 @@ export default function UserPage(props) {
 		<br/><br/>
 		<Row>
 			<table className='table table-striped' aria-labelledby="tabelLabel" border="0">
-		
 				<thead>
 					<tr>
 						<th>Id</th>
 						<th>Name</th>
 						<th>Age</th>
-						<th></th>
+						<th>Function</th>
 					</tr>
 				</thead>
 				<tbody>
-					{currentList.map(user =>
+					{currentList.length != 0 ? currentList.map(user =>
 						<tr key={user.id}>
 							<td>{user.id}</td>
 							<td>{user.name}</td>
@@ -75,19 +74,21 @@ export default function UserPage(props) {
 							<td><Button color="success" onClick={() => handleEdit(user)}>Edit</Button>&nbsp;&nbsp;
 							<Button color="danger" onClick={() => handleDelete(user)}>Delete</Button></td>
 						</tr>
-					)}
+					) : <div className="text-center">Empty List</div>
+				}
 				</tbody>
 			</table>
-		
-			<Pagination
-				itemClass="page-item"
-				linkClass="page-link" 
-				activePage={activePage}
-				itemsCountPerPage={3}
-				totalItemsCount={total}
-				pageRangeDisplayed={3}
-				onChange={handlePageChange}
-			/>
+			<Row>
+				<Pagination
+					itemClass="page-item"
+					linkClass="page-link" 
+					activePage={activePage}
+					itemsCountPerPage={3}
+					totalItemsCount={total}
+					pageRangeDisplayed={3}
+					onChange={handlePageChange}
+				/>
+			</Row>
 		</Row>
 		</div>
 	);
