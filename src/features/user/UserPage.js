@@ -42,13 +42,19 @@ export default function UserPage(props) {
         const action = deleteUser(values);
         dispatch(action);
 	}
-
+	const clear = () => {
+		window.localStorage.clear()
+		window.location.reload();
+	}
 	const colorText = {
 		color: "white"
 	}
 	return (
 		<div>
         <Button color="primary"><Link style={colorText} to="/listusers/add">Add new user</Link></Button>
+		&nbsp;
+		<Button color="danger" onClick={clear}>Clear</Button>
+		<br/><br/>
 		<Row>
 			<table className='table table-striped' aria-labelledby="tabelLabel" border="0">
 		
