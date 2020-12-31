@@ -14,6 +14,12 @@ function MainPage() {
         const url = `/listusers/${user.id}`;
         history.push(url);
     }
+
+    const handleDetailUser = (user) => {
+        console.log('user', user);
+        const url = `/listusers/detail/${user.id}`;
+        history.push(url);
+    }
     
     return (
         <div>
@@ -23,6 +29,7 @@ function MainPage() {
             <ShowListUser
             userList={listUserMain}
             editUserClick={handleEditUser}
+            detailUserClick={handleDetailUser}
             />
             </Container>
         </div>

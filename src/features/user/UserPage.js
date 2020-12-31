@@ -2,7 +2,7 @@ import * as React from 'react';
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom'
 import { deleteUser } from './UserSlice.js';
-import { Button, Col, Label, Row, Table } from 'reactstrap';
+import { Button, Row  } from 'reactstrap';
 import PropTypes from 'prop-types';
 import Pagination from "react-js-pagination";
 import {useState} from 'react';
@@ -16,7 +16,7 @@ UserPage.defaultPros = {
 }
 
 export default function UserPage(props) {
-	const { userList, editUserClick } = props;
+	const { userList, editUserClick, detailUserClick } = props;
 
 	const [activePage, setActivePage] = useState(1);
 	const total = userList.length;
@@ -43,6 +43,11 @@ export default function UserPage(props) {
         dispatch(action);
 	}
 
+	const handleDetail = (e) => {
+        console.log('e:', e);
+        if (detailUserClick) detailUserClick(e);
+	}
+	
 	const colorText = {
 		color: "white"
 	}
@@ -66,7 +71,8 @@ export default function UserPage(props) {
 							<td>{user.id}</td>
 							<td>{user.name}</td>
 							<td>{user.age}</td>
-							<td><Button color="success" onClick={() => handleEdit(user)}>Edit</Button>&nbsp;&nbsp;
+							<td><Button color="info" onClick={() => handleDetail(user)}>Detail</Button>&nbsp;&nbsp;
+							<Button color="success" onClick={() => handleEdit(user)}>Edit</Button>&nbsp;&nbsp;
 							<Button color="danger" onClick={() => handleDelete(user)}>Delete</Button></td>
 						</tr>
 					)}
