@@ -39,11 +39,18 @@ function AddEditPage(props) {
     return (
         <div>
             <div>
-                <FormPage
+                {
+                    infoUserEdit !== undefined || idAdd === true ? <FormPage
                     isAddMode={idAdd}
                     initialValues={initialValues}
                     onSubmit={handleSubmit}
-                />
+                /> : <>
+                        <h3>404 not found</h3>
+                            <p>Cannot find this user: {userid} 
+                            </p>
+                    </>
+                }
+                
             </div>
         </div>
 
