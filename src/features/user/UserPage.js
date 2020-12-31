@@ -2,11 +2,7 @@ import * as React from 'react';
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom'
 import { deleteUser } from './UserSlice.js';
-<<<<<<< HEAD
-import { Button, Row  } from 'reactstrap';
-=======
 import { Button, Row } from 'reactstrap';
->>>>>>> 5c50c0557fd1f3dfa5b01a9cf87c02f4941b5899
 import PropTypes from 'prop-types';
 import Pagination from "react-js-pagination";
 import { useState } from 'react';
@@ -41,13 +37,11 @@ export default function UserPage(props) {
 		if (editUserClick) editUserClick(a);
 	}
 
-<<<<<<< HEAD
 	const handleDetail = (e) => {
         console.log('e:', e);
         if (detailUserClick) detailUserClick(e);
 	}
 	
-=======
 	const handleDelete = (values) => {
 		console.log('delete user')
 		const action = deleteUser(values);
@@ -57,7 +51,6 @@ export default function UserPage(props) {
 		window.localStorage.clear()
 		window.location.reload();
 	}
->>>>>>> 5c50c0557fd1f3dfa5b01a9cf87c02f4941b5899
 	const colorText = {
 		color: "white"
 	}
@@ -101,14 +94,9 @@ export default function UserPage(props) {
 							<td>{user.id}</td>
 							<td>{user.name}</td>
 							<td>{user.age}</td>
-<<<<<<< HEAD
 							<td><Button color="info" onClick={() => handleDetail(user)}>Detail</Button>&nbsp;&nbsp;
 							<Button color="success" onClick={() => handleEdit(user)}>Edit</Button>&nbsp;&nbsp;
-							<Button color="danger" onClick={() => handleDelete(user)}>Delete</Button></td>
-=======
-							<td><Button color="success" onClick={() => handleEdit(user)}>Edit</Button>&nbsp;&nbsp;
 							<Button color="danger" onClick={() => confirmDelete(user)}>Delete</Button></td>
->>>>>>> 5c50c0557fd1f3dfa5b01a9cf87c02f4941b5899
 						</tr>
 					) : <div className="text-center">Empty List</div>
 				}
