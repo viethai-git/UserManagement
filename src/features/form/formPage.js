@@ -28,15 +28,17 @@ function FormPage(props) {
                         component={InputField}
 
                         label="Id"
-                        placeholder="nhập Id..."
+                        placeholder="Enter Id..."
                         disabled={isAddMode ? false : true}
+                        required
                     />
                     <FastField
                         name="name"
                         component={InputField}
 
                         label="Name"
-                        placeholder="nhập tên..."
+                        placeholder="Enter name..."
+                        required
                     />
                     <FastField
                         name="age"
@@ -46,10 +48,10 @@ function FormPage(props) {
                         component={InputField}
 
                         label="Age"
-                        placeholder="nhập tuổi..."
+                        placeholder="Enter age..."
                     />
 
-                    <FormGroup>
+                    <FormGroup className="text-right">
                         <Button type="submit" color='primary'>
                             Lưu
                     </Button>
