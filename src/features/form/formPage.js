@@ -28,7 +28,7 @@ function FormPage(props) {
                         component={InputField}
 
                         label="Id"
-                        placeholder="nhập Id..."
+                        placeholder="Enter Id..."
                         disabled={isAddMode ? false : true}
                     />
                     <FastField
@@ -36,7 +36,7 @@ function FormPage(props) {
                         component={InputField}
 
                         label="Name"
-                        placeholder="nhập tên..."
+                        placeholder="Enter name..."
                     />
                     <FastField
                         name="age"
@@ -46,7 +46,7 @@ function FormPage(props) {
                         component={InputField}
 
                         label="Age"
-                        placeholder="nhập tuổi..."
+                        placeholder="Enter age..."
                     />
 
                     <FormGroup>
